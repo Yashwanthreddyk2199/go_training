@@ -27,6 +27,9 @@ func main() {
 	
 	fmt.Println("Hello") // function always start with capital EX: Println, Add
 
+
+	//2nd class
+
 	// for i:=1; i<10; i++{    //for loop there is no precrement like ++i
 
 	// 	fmt.Println("Hello")
@@ -109,6 +112,77 @@ func main() {
 	for _, value := range arr{ // _ is used instead of index if not error is thrown 
 		fmt.Println(value)
 	}
+
+	//3rd class
+
+	// slicing
+	// different ways to create a slice
+	//1. var s []int
+	//2. s:=make([]int, 3,5)
+	// s := make([]int, 3)
+	//3. s:= []int{1,2,3}
+	//4. 
+	s := arr[1:4] // var arr [5]int = [5]int{1,2,3,4,5}
+	fmt.Println(s)
+	s =append(s, 5)
+	fmt.Println(s) // after appending
+	// slicing example
+	names := [4]string{ // example from go tour
+		"John",
+		"Paul",
+		"George",
+		"Ringo",
+	}
+	fmt.Println(names)
+
+	a := names[0:2]
+	b := names[1:3]
+	fmt.Println(a, b)
+	b[0] = "XXX"   // the update in b also reflects the changes in names i.e paul is change to xxx
+	fmt.Println(a, b)
+	fmt.Println(names)
+
+	// Maps : it store data in key value pair. Every key is unique 
+
+		// a := make(map[string]int) here string values are key int are  values in a key value pair
+		//a := map[string]int{
+		// 	"one": 1
+		// 	"two": 2
+		// }
+	m := map[string]float64{
+		"x": 92.3,
+		"y": 99.8,
+		"z": 91.2,
+	}
+
+	m["w"] = 85.1 // to add new valuwe to a map
+	xvalue := m["x"]
+	fmt.Println(xvalue)
+	m["x"]=90 // updating value
+	yvalue := m["x"]
+	fmt.Println(yvalue)
+	delete(m, "y")// to delete values
+
+	for student, grade := range m{  // to display the key pair values
+		fmt.Println(student, grade)
+
+	}
+
+	if grade, ok := m["x"]; ok{ // here ok is an bool value
+		fmt.Println(grade, ok)
+	} else{
+		fmt.Println(" not found")
+
+	}
+
+
+
+
+
+
+
+
+
 
 
 
