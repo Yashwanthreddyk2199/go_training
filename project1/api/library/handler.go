@@ -14,7 +14,7 @@ func CreateHandler(db *sql.DB) http.HandlerFunc {
 			return // it is only check for correct req method so we will not return anything
 		}
 
-		if err := CreateBookLogic(db, w, r); err != nil {
+		if err := CreateBookLogic(db, w, r); err != nil { // function createbooklogic in bizlogic
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 		}
 
